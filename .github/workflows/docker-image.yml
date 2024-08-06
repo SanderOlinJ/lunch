@@ -50,6 +50,6 @@ jobs:
           push: true
           tags: |
             ${{ steps.meta.outputs.tags }}
-            ${{ github.ref == 'refs/heads/main' && 'latest' || '' }}
+            ${{ github.ref == 'refs/heads/master' && 'latest' || '' }}
           labels: ${{ steps.meta.outputs.labels }}
 
