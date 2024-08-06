@@ -12,6 +12,8 @@ COPY postcss.config.mjs .
 COPY tailwind.config.ts .
 COPY tsconfig.json .
 
+RUN npm install
+
 RUN npm run build
 
 FROM nginx:latest as runtime
