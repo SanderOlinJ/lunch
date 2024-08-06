@@ -14,12 +14,6 @@ COPY tsconfig.json .
 
 RUN npm install
 
-RUN npm run build
+EXPOSE 3000
 
-FROM nginx:latest as runtime
-
-WORKDIR /usr/share/nginx/html
-
-COPY --from=builder /app/out/* ./
-
-EXPOSE 80
+CMD ["npm", "run", "dev"]
