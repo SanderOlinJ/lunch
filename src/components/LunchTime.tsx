@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import {ReactElement, useEffect, useState} from "react";
 import Confetti from "react-confetti";
 
@@ -21,7 +21,7 @@ export default function LunchTime (): ReactElement {
 
     return (
         <main className="flex flex-col items-center p-24">
-            <h1 className="text-5xl font-bold">IT IS LUNCH!!!!</h1>
+            <h1 className="text-5xl font-bold">DET ER LUNSJ!!!!</h1>
             <h2 className="text-5xl font-bold mt-10">🎉🎉🎉🎉🎉🎉</h2>
             <Confetti
                 width={windowSize.width}

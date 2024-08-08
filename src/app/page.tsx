@@ -14,13 +14,10 @@ export default function Home(): ReactElement {
       setIsLunchTime(isLunch);
     };
 
-    // Check time immediately on mount
     checkTime();
 
-    // Set an interval to check time every minute
     const intervalId = setInterval(checkTime, 1000);
 
-    // Clean up interval on component unmount
     return () => clearInterval(intervalId);
   }, []);
 
