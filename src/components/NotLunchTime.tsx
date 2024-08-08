@@ -39,7 +39,7 @@ export default function NotLunchTime (): ReactElement {
             img.style.width = '500px';
             img.style.height = '500px';
             img.style.left = `${Math.random() * 70}vw`;
-            img.style.zIndex = '-1';
+            img.style.zIndex = '10';
             img.style.pointerEvents = 'none';
             img.style.animation = 'fall 8s linear';
 
@@ -77,10 +77,10 @@ export default function NotLunchTime (): ReactElement {
     }, []);
 
     return (
-        <main className="flex flex-col items-center p-24">
-            <h1 className="text-5xl font-bold">Det er ikke lunsj :´(</h1>
-            <h2 className="text-3xl font-medium mt-20">Men neste lunsj er om:</h2>
-            <p className="text-3xl mt-5">{timeUntilLunch}</p>
+        <main className="flex flex-col items-center pt-32 text-center">
+            <h1 className="text-5xl font-extrabold z-20">Det er ikke lunsj :´(</h1>
+            <h2 className="text-3xl font-medium mt-40 z-20 pt-32">Men neste lunsj er om:</h2>
+            <p className="text-3xl font-mono mt-5 z-20">{timeUntilLunch}</p>
         </main>
     );
 }

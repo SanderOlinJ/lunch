@@ -4,15 +4,19 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 200, 180, 220; /* Adjusted for a purple hint */
+  --background-end-rgb: 160, 20, 180;   /* Slightly darker with a purple tint */
+  --waves-color: rgba(240, 240, 240, 0.7);
+  --box-color: rgba(240, 240, 240, 1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 50, 0, 50;
+    --background-end-rgb: 150, 0, 150;
+    --waves-color: rgba(50, 0, 50, 0.7);
+    --box-color: rgba(50, 0, 50, 1);
   }
 }
 
@@ -40,3 +44,75 @@ body {
     transform: translateY(250vh);
   }
 }
+
+.waves {
+  position: fixed;
+  left: 0;
+  top: 230px;
+  right: 0;
+  width: 100%;
+  height: 150px;
+}
+
+.waves .parallax > use {
+  fill: var(--waves-color); /* Default wave color */
+}
+
+.box-under-waves {
+  position: absolute;
+  top: calc(230px + 150px);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 230px - 150px);
+  background-color: var(--box-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  .box-under-waves {
+    background-color: var(--box-color);
+  }
+}
+
+.content {
+  position: relative;
+  height: 40vh;
+  text-align: center;
+  background-color: purple;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 20s;
+}
+
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 23s;
+}
+
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 26s;
+}
+
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 40s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+

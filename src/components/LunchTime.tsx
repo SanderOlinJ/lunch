@@ -20,9 +20,9 @@ export default function LunchTime (): ReactElement {
     })
 
     return (
-        <main className="flex flex-col items-center p-24">
-            <h1 className="text-5xl font-bold">DET ER LUNSJ!!!!</h1>
-            <h2 className="text-5xl font-bold mt-10">🎉🎉🎉🎉🎉🎉</h2>
+        <main className="flex flex-col items-center pt-32 text-center">
+            <h1 className="text-5xl font-bold z-20">DET ER LUNSJ!!!!</h1>
+            <h2 className="text-5xl font-bold mt-10 z-20 text-center">🎉🎉🎉🎉🎉🎉</h2>
             <Confetti
                 width={windowSize.width}
                 height={windowSize.height}
