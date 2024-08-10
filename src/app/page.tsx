@@ -4,6 +4,7 @@ import NotLunchTime from "@/components/NotLunchTime";
 import { ReactElement, useEffect, useState } from "react";
 
 export default function Home(): ReactElement {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isLunchTime, setIsLunchTime] = useState<boolean>(false);
 
   useEffect(() => {
@@ -12,6 +13,7 @@ export default function Home(): ReactElement {
       const isLunch =
         currentTime.getHours() >= 11 && currentTime.getHours() < 12;
       setIsLunchTime(isLunch);
+      setIsLoading(false);
     };
 
     checkTime();
@@ -23,7 +25,9 @@ export default function Home(): ReactElement {
 
   return (
       <main className="flex min-h-screen flex-col items-center justify-between">
-        {isLunchTime ? <LunchTime/> : <NotLunchTime/>}
+        {!isLoading && (
+            isLunchTime ? <LunchTime/> : <NotLunchTime/>
+        )}
         <div>
           <svg
               className="waves"
