@@ -4,8 +4,8 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 200, 180, 220; /* Adjusted for a purple hint */
-  --background-end-rgb: 160, 20, 180;   /* Slightly darker with a purple tint */
+  --background-start-rgb: 200, 180, 220;
+  --background-end-rgb: 160, 20, 180;
   --waves-color: rgba(240, 240, 240, 0.7);
   --box-color: rgba(240, 240, 240, 1);
 }
@@ -55,7 +55,7 @@ body {
 }
 
 .waves .parallax > use {
-  fill: var(--waves-color); /* Default wave color */
+  fill: var(--waves-color);
 }
 
 .box-under-waves {
@@ -79,8 +79,6 @@ body {
   text-align: center;
   background-color: purple;
 }
-
-/* Animation */
 
 .parallax > use {
   animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
