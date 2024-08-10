@@ -11,7 +11,8 @@ export default function Home(): ReactElement {
     const checkTime = () => {
       const currentTime: Date = new Date();
       const isLunch =
-        currentTime.getHours() >= 11 && currentTime.getHours() < 12;
+        currentTime.getHours() >= 11 && currentTime.getHours() < 12 &&
+          currentTime.getDay() != 6 && currentTime.getDay() != 0;
       setIsLunchTime(isLunch);
       setIsLoading(false);
     };

@@ -8,17 +8,29 @@ export default function NotLunchTime (): ReactElement {
         const calculateTimeUntilLunch = (): void => {
             const currentTime: Date = new Date();
             const nextLunchTime: Date = new Date();
-
             nextLunchTime.setHours(11, 0, 0, 0);
 
-            if (currentTime.getHours() >= 11) {
-                nextLunchTime.setDate(nextLunchTime.getDate() + 1);
+            const currentDay: number = currentTime.getDay();
+            const currentHour: number = currentTime.getHours();
+
+            if (currentDay === 5 && currentHour >= 11) {
+                nextLunchTime.setDate(currentTime.getDate() + 3);
+            } else if (currentDay === 6) {
+                nextLunchTime.setDate(currentTime.getDate() + 2);
+            } else if (currentHour >= 11) {
+                nextLunchTime.setDate(currentTime.getDate() + 1);
             }
+
             const timeDifference: number = nextLunchTime.getTime() - currentTime.getTime();
-            const hours: number = Math.floor(timeDifference / (1000 * 60 * 60));
+            const days: number = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours: number = Math.floor(timeDifference % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
             const minutes: number = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds: number = Math.floor((timeDifference % (1000 * 60)) / 1000);
-            setTimeUntilLunch(`${hours}t ${minutes}m ${seconds}s`);
+            if (days > 0) {
+                setTimeUntilLunch(`${days}d ${hours}t ${minutes}m ${seconds}s`);
+            } else {
+                setTimeUntilLunch(`${hours}t ${minutes}m ${seconds}s`);
+            }
         };
         calculateTimeUntilLunch();
         const intervalId: NodeJS.Timeout = setInterval(calculateTimeUntilLunch, 1000);
