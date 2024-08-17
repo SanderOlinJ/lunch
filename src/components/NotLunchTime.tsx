@@ -17,6 +17,8 @@ export default function NotLunchTime (): ReactElement {
                 nextLunchTime.setDate(currentTime.getDate() + 3);
             } else if (currentDay === 6) {
                 nextLunchTime.setDate(currentTime.getDate() + 2);
+            } else if (currentDay === 0) {
+                nextLunchTime.setDate(currentTime.getDate() + 1);
             } else if (currentHour >= 11) {
                 nextLunchTime.setDate(currentTime.getDate() + 1);
             }
