@@ -1,5 +1,6 @@
 "use client";
 import {ReactElement, useEffect, useState} from "react";
+import SnackGenerator from "./SnackGenerator";
 
 export default function NotLunchTime (): ReactElement {
     const [timeUntilLunch, setTimeUntilLunch] = useState<string>("");
@@ -95,6 +96,7 @@ export default function NotLunchTime (): ReactElement {
             <h1 className="text-5xl font-extrabold z-20">Det er ikke lunsj :´(</h1>
             <h2 className="text-3xl font-medium mt-40 z-20 pt-32">Men neste lunsj er om:</h2>
             <p className="text-3xl font-mono mt-5 z-20">{timeUntilLunch}</p>
+            <SnackGenerator />
         </main>
     );
 }
